@@ -1,0 +1,16 @@
+.home {
+  height: 100vh;
+
+  .left-home {
+    height: 55%;
+    position: relative;
+  }
+
+  button {
+    position: absolute;
+    font-size: 1.2em;
+    top: 50%;
+    left: 22%;
+    width: 226px;
+  }
+}
