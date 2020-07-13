@@ -1,0 +1,34 @@
+@import '../../../../../assets/scss/variables';
+@import '../../scss/menu-variables';
+
+
+@mixin nav-item-active {
+  background-color: #f0f9ff;
+  font-size: 1.15em;
+  
+  & .nav-link {
+    font-weight: 500;
+    color: $primary-color;
+  }
+}
+
+.nav-item {
+  height: $menu-height;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 186px;
+  transition: all 400ms;
+
+  &:hover {
+    @include nav-item-active;
+  }
+
+  &.active {
+    @include nav-item-active;
+  }
+
+  .nav-link {
+    font-size: 1.2em;
+  }
+}

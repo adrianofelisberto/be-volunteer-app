@@ -1,0 +1,4 @@
+<li class="nav-item" [ngClass]="{ 'active': rla.isActive }" >
+  <a class="nav-link" [routerLink]="routerLink" #rla="routerLinkActive" routerLinkActive [routerLinkActiveOptions]="{exact:
+    true}">{{ label }}</a>
+</li>
