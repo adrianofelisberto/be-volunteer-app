@@ -1,22 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Ubuntu:wght@700&display=swap');
+@import './assets/scss/variables';
+
 * {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-size: 16px;
 }
 
-
 body {
-
-  .btn, .nav-link {
-    font-family: 'Ubuntu', sans-serif;
-  }
-
-  .nav-link {
-    font-size: 1.2em;
-  }
-
   .btn {
     height: 50px;
     border-radius: 25px;
@@ -24,7 +16,7 @@ body {
     transition: all 400ms;
 
     &:hover {
-      color: #fff;
+      color: $text-color;
       filter: brightness(0.95);
       transform: scale(1.1);
     }
@@ -35,9 +27,25 @@ body {
     }
   }
 
-  .button-primary {
-    background-color: #C1C652;
-    color: #fff;
+  .btn {
+    font-family: 'Ubuntu', sans-serif;
+  }
 
+  p, .nav-link, h1 {
+    color: $primary-color;
+  }
+ 
+  .button-primary {
+    background-color: $secundary-color;
+    color: $text-color;
+  }
+
+  .form-control {
+    border-color: $primary-color;
+  }
+
+  .form-control:focus {
+    box-shadow: none;
+    border-color: red; // just test TODO: remove
   }
 }
