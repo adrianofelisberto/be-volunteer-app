@@ -6,6 +6,10 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./modules/public/public.module').then(module => module.PublicModule)
+  },
+  {
+    path: 'private',
+    loadChildren: () => import('./modules/private/private.module').then(module => module.PrivateModule)
   }
 ];
 
