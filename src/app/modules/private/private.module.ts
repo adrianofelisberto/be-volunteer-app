@@ -5,11 +5,12 @@ import { CreateVolunteerComponent } from './components/create-volunteer/create-v
 import { MenuComponent } from './components/menu/menu.component';
 import { PrivateComponent } from './private.component';
 import { MenuItemComponent } from './components/menu-item/menu-item.component';
+import { ListVolunteersComponent } from './components/list-volunteers/list-volunteers.component';
 
 
 
 @NgModule({
-  declarations: [CreateVolunteerComponent, MenuComponent, PrivateComponent, MenuItemComponent],
+  declarations: [CreateVolunteerComponent, MenuComponent, PrivateComponent, MenuItemComponent, ListVolunteersComponent],
   imports: [
     CommonModule,
     PrivateRoutingModule
