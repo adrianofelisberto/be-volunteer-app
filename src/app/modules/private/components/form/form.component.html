@@ -49,6 +49,12 @@
 
   </div>
 
-  <button (click)="validateSubmit()" class="btn button-primary col-12 ml-auto mt-3">Cadastrar</button>
+  <div *ngIf="!isEdit; else editTemplate">
+    <button (click)="validateSubmit()" class="btn button-primary col-12 ml-auto mt-3">Cadastrar</button>
+  </div>
 
 </form>
+
+<ng-template #editTemplate>
+  <button (click)="validateSubmit()" class="btn button-primary button-edit col-12 ml-auto mt-3">Editar</button>
+</ng-template>

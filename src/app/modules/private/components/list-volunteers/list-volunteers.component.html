@@ -20,7 +20,7 @@
       <td>{{ volunteer?.whatsapp | mask: '(00) 0000-0000'}}</td>
       <td>
         <div>
-          <a type="button" (click)="editVolunteer(volunteer)">
+          <a type="button" (click)="openEditModal(volunteer.id)">
             <i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i>
           </a>
           <a type="button" class="ml-2" (click)="removeVolunteer(volunteer)">
@@ -31,3 +31,4 @@
     </tr>
   </tbody>
 </table>
+

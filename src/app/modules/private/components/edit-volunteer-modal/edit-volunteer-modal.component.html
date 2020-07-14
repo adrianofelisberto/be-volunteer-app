@@ -1,0 +1,11 @@
+
+<!-- Modal Header -->
+<div class="modal-header">
+  <h4 class="modal-title">Editar Voluntário</h4>
+  <a type="button" class="close" (click)="activeModal.dismiss()" data-dismiss="modal">&times;</a>
+</div>
+
+<!-- Modal body -->
+<div class="modal-body">
+  <app-form (volunteerSavedEmitter)="activeModal.dismiss()" [volunteer]="data.volunteer" edit="true"></app-form>
+</div>

@@ -1,3 +1,4 @@
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PrivateRoutingModule } from './private-routing.module';
@@ -12,20 +13,25 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { InterestService } from './services/interest.service';
 import { HttpClientModule } from '@angular/common/http';
 import { VolunteerService } from './services/volunteer.service';
+import { EditVolunteerModalComponent } from './components/edit-volunteer-modal/edit-volunteer-modal.component';
 
 
 @NgModule({
-  declarations: [CreateVolunteerComponent, MenuComponent, PrivateComponent, MenuItemComponent, ListVolunteersComponent, FormComponent],
+  declarations: [CreateVolunteerComponent, MenuComponent, PrivateComponent, MenuItemComponent, ListVolunteersComponent, FormComponent, EditVolunteerModalComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     PrivateRoutingModule,
     NgxMaskModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [
     InterestService,
     VolunteerService
+  ],
+  entryComponents: [
+    EditVolunteerModalComponent
   ]
 })
 export class PrivateModule { }
