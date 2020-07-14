@@ -6,11 +6,12 @@ import { MenuComponent } from './components/menu/menu.component';
 import { PrivateComponent } from './private.component';
 import { MenuItemComponent } from './components/menu-item/menu-item.component';
 import { ListVolunteersComponent } from './components/list-volunteers/list-volunteers.component';
+import { FormComponent } from './components/form/form.component';
 
 
 
 @NgModule({
-  declarations: [CreateVolunteerComponent, MenuComponent, PrivateComponent, MenuItemComponent, ListVolunteersComponent],
+  declarations: [CreateVolunteerComponent, MenuComponent, PrivateComponent, MenuItemComponent, ListVolunteersComponent, FormComponent],
   imports: [
     CommonModule,
     PrivateRoutingModule
