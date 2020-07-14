@@ -44,8 +44,9 @@
 }
 
 .card-item {
+  box-sizing: border-box;
   margin: .5em;
-  width: 165px;
+  min-width: 165px;
   height: 180px;
   border: 1px solid #45687F;
   display: flex;
