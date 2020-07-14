@@ -9,6 +9,9 @@ import { ListVolunteersComponent } from './components/list-volunteers/list-volun
 import { FormComponent } from './components/form/form.component';
 import { NgxMaskModule } from 'ngx-mask'
 import { ReactiveFormsModule } from '@angular/forms';
+import { InterestService } from './services/interest.service';
+import { HttpClientModule } from '@angular/common/http';
+import { VolunteerService } from './services/volunteer.service';
 
 
 @NgModule({
@@ -17,7 +20,12 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     ReactiveFormsModule,
     PrivateRoutingModule,
-    NgxMaskModule.forRoot()
+    NgxMaskModule.forRoot(),
+    HttpClientModule
+  ],
+  providers: [
+    InterestService,
+    VolunteerService
   ]
 })
 export class PrivateModule { }
