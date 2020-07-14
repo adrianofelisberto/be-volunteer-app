@@ -30,8 +30,8 @@ export class VolunteerService extends BaseService {
     return this.http.put<Message>(this.path, volunteer);
   }
 
-  removeById(id: number) {
-    this.http.delete(`${this.path}/${id}`);
+  removeById(id: number): Observable<Message> {
+    return this.http.delete<Message>(`${this.path}/${id}`);
   }
 
 }
