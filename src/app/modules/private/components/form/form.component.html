@@ -1,16 +1,30 @@
 <form [formGroup]="form">
   <div class="form-group">
     <input formControlName="name" type="text" name="name" placeholder="Nome" class="form-control">
+    <div class="input-error col-12 col-md-6 mb-2">
+      <span *ngIf="verifyError('required', 'name')">Campo obrigatório</span>
+    </div>
   </div>
   <div class="form-group">
     <input formControlName="email" type="email" name="email" placeholder="E-mail" class="form-control">
+    <div class="input-error col-12 col-md-6 mb-2">
+      <span *ngIf="verifyError('required', 'email')">Campo obrigatório</span>
+      <span *ngIf="verifyError('pattern', 'email')">Formato de e-mail inválido</span>
+    </div>
   </div>
   <div class="row">
     <div class="form-group col-md-6">
-      <input formControlName="phone" mask="(00) 00000-0000" type="tel" name="phone" placeholder="Telefone" class="form-control">
+      <input formControlName="phone" maxlength="15" mask="(00) 00000-0000" type="tel" name="phone" placeholder="Telefone" class="form-control">
+      <div class="input-error col-12 mb-2">
+        <span *ngIf="verifyError('required', 'phone')">Campo obrigatório</span>
+        <span *ngIf="verifyError('minlength', 'phone')">Quantidade de caracteres inválidos</span>
+      </div>
     </div>
     <div class="form-group col-md-6">
-      <input formControlName="whatsapp" mask="(00) 0000-0000" type="tel" name="whatsapp" placeholder="Whatsapp" class="form-control">
+      <input formControlName="whatsapp" maxlength="14" mask="(00) 0000-0000" type="tel" name="whatsapp" placeholder="Whatsapp" class="form-control">
+      <div class="input-error col-12 mb-2">
+        <span *ngIf="verifyError('minlength', 'whatsapp')">Quantidade de caracteres inválidos</span>
+      </div>
     </div>
   </div>
 
@@ -18,58 +32,23 @@
 
   <div class="card-wrapper">
     <div class="card-items row">
-      <div class="card-item">
+      <div
+        *ngFor="let interest of interests$ | async"
+        (click)="setListSelected(interest)"
+        class="card-item"
+        [ngClass]="{ 'active': itemSelected(interest) }"
+      >
         <div class="card-image">
-          <img class="icon-blue" src="assets/icon-ball_73x70.png">
+          <img [src]="interest?.logoLink">
         </div>
         <div class="card-text">
-          Esportes
-        </div>
-      </div>
-      <div class="card-item active">
-        <div class="card-image">
-          <img class="icon-blue" src="assets/icon-ball_73x70.png">
-        </div>
-        <div class="card-text">
-          Esportes
-        </div>
-      </div>
-      <div class="card-item">
-        <div class="card-image">
-          <img class="icon-blue" src="assets/icon-ball_73x70.png">
-        </div>
-        <div class="card-text">
-          Esportes
-        </div>
-      </div>
-      <div class="card-item">
-        <div class="card-image">
-          <img class="icon-blue" src="assets/icon-ball_73x70.png">
-        </div>
-        <div class="card-text">
-          Esportes
-        </div>
-      </div>
-      <div class="card-item active">
-        <div class="card-image">
-          <img class="icon-blue" src="assets/icon-ball_73x70.png">
-        </div>
-        <div class="card-text">
-          Esportes
-        </div>
-      </div>
-      <div class="card-item">
-        <div class="card-image">
-          <img class="icon-blue" src="assets/icon-ball_73x70.png">
-        </div>
-        <div class="card-text">
-          Esportes
+          {{ interest?.description }}
         </div>
       </div>
     </div>
 
   </div>
 
-  <button (click)="saveVolunteer()" class="btn button-primary col-12 ml-auto mt-3">Cadastrar</button>
+  <button (click)="validateSubmit()" class="btn button-primary col-12 ml-auto mt-3">Cadastrar</button>
 
 </form>
