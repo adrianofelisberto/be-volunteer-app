@@ -14,6 +14,7 @@ import { InterestService } from './services/interest.service';
 import { HttpClientModule } from '@angular/common/http';
 import { VolunteerService } from './services/volunteer.service';
 import { EditVolunteerModalComponent } from './components/edit-volunteer-modal/edit-volunteer-modal.component';
+import { CoreModule } from '../core/core.module';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { EditVolunteerModalComponent } from './components/edit-volunteer-modal/e
     PrivateRoutingModule,
     NgxMaskModule.forRoot(),
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    CoreModule
   ],
   providers: [
     InterestService,

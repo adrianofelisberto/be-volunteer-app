@@ -4,6 +4,8 @@ import { VolunteerService } from '../../services/volunteer.service';
 import { Volunteer } from '../../models/volunteer';
 import { NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
 import { EditVolunteerModalComponent } from '../edit-volunteer-modal/edit-volunteer-modal.component';
+import { Message } from '../../models/message';
+import { MessageService } from 'src/app/modules/core/services/message.service';
 
 @Component({
   selector: 'app-list-volunteers',
@@ -16,6 +18,7 @@ export class ListVolunteersComponent implements OnInit {
 
   constructor(
     private volunteerService: VolunteerService,
+    private messageService: MessageService,
     private modalService: NgbModal
   ) { }
 
@@ -31,7 +34,8 @@ export class ListVolunteersComponent implements OnInit {
             scrollable: false,
             centered: true,
             windowClass: 'max-width-modal',
-            
+            keyboard: false,
+            beforeDismiss: () => false
           });
     
         const data = {
@@ -39,14 +43,23 @@ export class ListVolunteersComponent implements OnInit {
         }
     
         modalRef.componentInstance.data = data;
-        modalRef.result.finally(() => this.loadVolunteers());
+        modalRef.result.then((result) => result && this.loadVolunteers());
       })
   }
 
-  removeVolunteer(volunteer: Volunteer) {
+  validateRemoveVolunteer(volunteer: Volunteer) {
+    this.messageService.confirmMessage()
+      .then(result => {
+        if (result.value) {
+          this.removeVolunteer(volunteer);
+        }
+      })
+  }
+
+  private removeVolunteer(volunteer: Volunteer) {
     this.volunteerService.removeById(volunteer.id)
-      .subscribe(message => {
-        alert(message.message);
+      .subscribe(response => {
+        this.messageService.successMessage(response.message);
         this.loadVolunteers();
       });
   }

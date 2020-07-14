@@ -30,12 +30,12 @@
 
   <h6>Interesses</h6>
 
-  <div class="card-wrapper">
+  <div class="card-wrapper ">
     <div class="card-items row">
       <div
         *ngFor="let interest of interests$ | async"
         (click)="setListSelected(interest)"
-        class="card-item"
+        class="card-item col-md-3 col-sm-6 col-12"
         [ngClass]="{ 'active': itemSelected(interest) }"
       >
         <div class="card-image">

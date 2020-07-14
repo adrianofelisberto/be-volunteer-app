@@ -6,6 +6,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Interest } from '../../models/interest';
 import { VolunteerService } from '../../services/volunteer.service';
 import { Message } from '../../models/message';
+import { MessageService } from 'src/app/modules/core/services/message.service';
 
 const CONTROL = {
   NAME: 'name',
@@ -33,6 +34,7 @@ export class FormComponent implements OnInit {
     private fb: FormBuilder,
     private interestService: InterestService,
     private volunteerService: VolunteerService,
+    private messageService: MessageService,
     @Attribute('edit') public isEdit: boolean
   ) { }
 
@@ -94,7 +96,9 @@ export class FormComponent implements OnInit {
 
   validateSubmit() {
     if (this.form.invalid) {
-      alert('form invalid')
+      this.messageService.warnningMessage('Formulário inválido');
+      Object.keys(this.form.controls)
+        .forEach(control => this.form.get(control).markAsTouched());
       return;
     }
 
@@ -116,8 +120,8 @@ export class FormComponent implements OnInit {
   }
 
   private saveVolunteer(fn: Observable<Message>) {
-    fn.subscribe(message => {
-        alert(message.message);
+    fn.subscribe(response => {
+        this.messageService.successMessage(response.message);
         this.resetFormAndInterests();
 
         this.isEdit && this.volunteerSavedEmitter.emit();
