@@ -27,7 +27,7 @@ body {
     }
   }
 
-  .btn, h2, h6 {
+  .btn, h2, h6, .modal-title {
     font-family: 'Ubuntu', sans-serif;
   }
 
@@ -37,7 +37,7 @@ body {
     text-indent: 1.4em;
   }
 
-  p, .nav-link, h2, h6 {
+  p, .nav-link, h2, h6, .modal-title {
     color: $primary-color;
   }
  
@@ -49,6 +49,12 @@ body {
   .form-control {
     border-color: $primary-color;
   }
+
+  .max-width-modal .modal-dialog {
+    max-width: 574px;
+  }
+
+  
 
   // .form-control:focus {
   //   box-shadow: none;
