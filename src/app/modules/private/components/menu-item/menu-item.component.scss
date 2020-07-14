@@ -4,7 +4,7 @@
 
 @mixin nav-item-active {
   background-color: #f0f9ff;
-  font-size: 1.15em;
+  font-size: 1em;
   
   & .nav-link {
     font-weight: 500;
