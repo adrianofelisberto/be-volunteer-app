@@ -27,7 +27,7 @@ body {
     }
   }
 
-  .btn, h1, h2 {
+  .btn, h2, h6 {
     font-family: 'Ubuntu', sans-serif;
   }
 
@@ -37,7 +37,7 @@ body {
     text-indent: 1.4em;
   }
 
-  p, .nav-link, h1, h2 {
+  p, .nav-link, h2, h6 {
     color: $primary-color;
   }
  
@@ -50,8 +50,9 @@ body {
     border-color: $primary-color;
   }
 
-  .form-control:focus {
-    box-shadow: none;
-    border-color: red; // just test TODO: remove
-  }
+  // .form-control:focus {
+  //   box-shadow: none;
+  //   border-color: red; // just test TODO: remove
+  // }
 }
+
