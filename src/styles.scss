@@ -27,11 +27,17 @@ body {
     }
   }
 
-  .btn {
+  .btn, h1, h2 {
     font-family: 'Ubuntu', sans-serif;
   }
 
-  p, .nav-link, h1 {
+  p {
+    line-height: 2em;
+    font-size: 1.1em;
+    text-indent: 1.4em;
+  }
+
+  p, .nav-link, h1, h2 {
     color: $primary-color;
   }
  
